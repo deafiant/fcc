@@ -6,7 +6,30 @@ def arithmetic_arranger(problem_list, show_answers=False):
     num_of_problems = len(problem_list)
     if num_of_problems > 5:
         return "Error: Too many problems."
-    
+    first_numbers = []
+    signs = []
+    second_numbers = []
+    for problem in problem_list:
+        parts = problem.split()
+        first_numbers.append(parts[0])
+        signs.append(parts[1])
+        second_numbers.append(parts[2])
+    all_numbers = first_numbers + second_numbers
+#    print(num1, sign, num2, all_numbers, end = '\n')
+    for number in all_numbers:
+        if not number.isdigit():
+            return "Error: Numbers must only contain digits."
+        if len(number) > 4:
+            return "Error: Numbers cannot be more than four digits."
+    for sign in signs:
+        if sign not in ("+", "-"):
+            return "Error: Operator must be '+' or '-'."
+
+
     
 if __name__ == '__main__':
-    print("I am the main man.")
+    print(arithmetic_arranger(["32 + 698", "3801 - 2", "45 + 43", "123 + 49", "1 + 2", "2 - 1"]))
+    print(arithmetic_arranger(["32g + 698", "3801 - 2"]))
+    print(arithmetic_arranger(["32 + 698", "38501 - 2"]))
+    print(arithmetic_arranger(["32 + 698", "3501 x 2"]))
+    print(arithmetic_arranger(["32 + 698", "3801 - 2", "45 + 43", "123 + 49"]))
