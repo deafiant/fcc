@@ -83,9 +83,10 @@ def arithmetic_arranger(problem_list, show_answers=False):
 
 
 if __name__ == '__main__':
-    help(arithmetic_arranger)
+#    help(arithmetic_arranger)
     print('\nList ["32 + 698", "3801 - 2", "45 + 43", "123 + 49"] produces:\n')
     print(arithmetic_arranger(["32 + 698", "3801 - 2", "45 + 43", "123 + 49"]))
     print('\nList ["32 + 8", "1 - 3801", "9999 + 9999", "523 - 49"] (with show_answers=True) produces:\n')
     print(arithmetic_arranger(["32 + 8", "1 - 3801", "9999 + 9999", "523 - 49"], True))
+    print()
     
