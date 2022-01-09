@@ -15,8 +15,7 @@ def arithmetic_arranger(problem_list, show_answers=False):
         first_numbers.append(parts[0])
         signs.append(parts[1])
         second_numbers.append(parts[2])
-    all_numbers = first_numbers + second_numbers
-    for number in all_numbers:
+    for number in first_numbers + second_numbers:
         if not number.isdigit():
             return "Error: Numbers must only contain digits."
         if len(number) > 4:
