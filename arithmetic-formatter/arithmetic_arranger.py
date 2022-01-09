@@ -9,14 +9,15 @@ def arithmetic_arranger(problem_list, show_answers=False):
     first_numbers = []
     signs = []
     second_numbers = []
+    if show_answers:
+        answers = []
     widths = []
     for problem in problem_list:
         parts = problem.split()
         first_numbers.append(parts[0])
         signs.append(parts[1])
         second_numbers.append(parts[2])
-    all_numbers = first_numbers + second_numbers
-    for number in all_numbers:
+    for number in first_numbers + second_numbers:
         if not number.isdigit():
             return "Error: Numbers must only contain digits."
         if len(number) > 4:
@@ -24,16 +25,15 @@ def arithmetic_arranger(problem_list, show_answers=False):
     for sign in signs:
         if sign not in ("+", "-"):
             return "Error: Operator must be '+' or '-'."
-    if show_answers:
-        answers = []
-        for x in range(0, num_of_problems):
+    
+    for x in range(0, num_of_problems):
+        if show_answers:
             if signs[x] == "+":
                 answers.append(int(first_numbers[x]) + int(second_numbers[x]))
             elif signs[x] == "-":
                 answers.append(int(first_numbers[x]) - int(second_numbers[x]))
             widths.append(max(len(first_numbers[x]), len(second_numbers[x]), len(str(answers[x]))))
-    else:
-        for x in range(0, num_of_problems):
+        else:
             widths.append(max(len(first_numbers[x]), len(second_numbers[x])))
     
 if __name__ == '__main__':
