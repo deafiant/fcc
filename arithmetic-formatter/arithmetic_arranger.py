@@ -31,17 +31,16 @@ def arithmetic_arranger(problem_list, show_answers=False):
                 answers.append(int(first_numbers[x]) + int(second_numbers[x]))
             elif signs[x] == "-":
                 answers.append(int(first_numbers[x]) - int(second_numbers[x]))
-        widths.append(max(len(first_numbers[x]), len(second_numbers[x]), len(str((answers[x])))))
+            widths.append(max(len(first_numbers[x]), len(second_numbers[x]), len(str(answers[x]))))
     else:
         for x in range(0, num_of_problems):
             widths.append(max(len(first_numbers[x]), len(second_numbers[x])))
-    
-
-
     
 if __name__ == '__main__':
     print(arithmetic_arranger(["32 + 698", "3801 - 2", "45 + 43", "123 + 49", "1 + 2", "2 - 1"]))
     print(arithmetic_arranger(["32g + 698", "3801 - 2"]))
     print(arithmetic_arranger(["32 + 698", "38501 - 2"]))
     print(arithmetic_arranger(["32 + 698", "3501 x 2"]))
-    print(arithmetic_arranger(["32 + 698", "3801 - 2", "45 + 43", "123 + 49"]))
+    print(arithmetic_arranger(["3672 + 6948", "3801 - 2", "45 + 43", "123 + 49"]))
+    print(arithmetic_arranger(["3672 + 6948", "3801 - 2", "45 + 43", "123 + 49"], True))
+    
