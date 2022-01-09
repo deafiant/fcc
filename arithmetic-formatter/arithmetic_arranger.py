@@ -1,6 +1,30 @@
 def arithmetic_arranger(problem_list, show_answers=False):
-    """Formats a list of arithmetic problems arranged vertically and side-by-side.
+    """Formats a list of addition and subtraction problems
+    arranged vertically and side-by-side.
     
+    The function will return an error if the list has more than
+    five problems or uses operators other than '+' or '-'.
+    Numbers must only contain digits and cannot contain more than
+    four digits (i.e. cannot be > 9999).
+
+    Parameters
+    ----------
+    problem_list : list
+        A list of up to five arithmetric problems.
+    show_answers : boolean
+        A flag used to print answers to the problems (default is
+        False).
+    
+    Returns
+    -------
+    str
+        A string of 3 rows (4 if show_answers=True) with the problems
+        arranged vertically and side-by-side.
+        Example:
+          32         1      523
+        +  8    - 3801    -  49
+        ----    ------    -----
+          40     -3800      474
     """
     
     first_numbers = []
@@ -59,8 +83,9 @@ def arithmetic_arranger(problem_list, show_answers=False):
 
 
 if __name__ == '__main__':
+    help(arithmetic_arranger)
+    print('\nList ["32 + 698", "3801 - 2", "45 + 43", "123 + 49"] produces:\n')
     print(arithmetic_arranger(["32 + 698", "3801 - 2", "45 + 43", "123 + 49"]))
+    print('\nList ["32 + 8", "1 - 3801", "9999 + 9999", "523 - 49"] (with show_answers=True) produces:\n')
     print(arithmetic_arranger(["32 + 8", "1 - 3801", "9999 + 9999", "523 - 49"], True))
-    print(arithmetic_arranger(["3672 + 6948", "3801 - 2", "45 + 43", "123 + 49"]))
-    print(arithmetic_arranger(["3672 + 6948", "3801 - 2", "45 + 43", "123 + 49"], True))
     
