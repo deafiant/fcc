@@ -9,11 +9,10 @@ def arithmetic_arranger(problem_list, show_answers=False):
 
     Parameters
     ----------
-    problem_list : list
+    problem_list : list of str
         A list of up to five arithmetric problems.
-    show_answers : boolean
-        A flag used to print answers to the problems (default is
-        False).
+    show_answers : bool, default=False
+        A flag used to print answers to the problems.
     
     Returns
     -------
@@ -25,6 +24,7 @@ def arithmetic_arranger(problem_list, show_answers=False):
         +  8    - 3801    -  49
         ----    ------    -----
           40     -3800      474
+    
     """
     
     first_numbers = []

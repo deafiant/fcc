@@ -1,5 +1,22 @@
 def add_time(start, duration, day=None):
-    """
+    """Adds a time duration to a start time.
+    
+    Parameters
+    ----------
+    start : str
+        Start time in the format "11:05 AM".
+    duration : str
+        Duration to add in hours:minutes, e.g. "15:27".
+    day : str, default=None
+        Full name of day of the week for the start time
+        (case insensitive), e.g. "tuesday"
+
+    Returns
+    -------
+    str
+        Time when duration ends including the number of
+        days passed, if any. If option `day` is provided,
+        also returns the day the duration ends.
     
     """
     
