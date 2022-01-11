@@ -4,7 +4,9 @@ Just a repository to house my freeCodeCamp project code.
 
 ### Currently working on:
 #### Scientific Computing with Python
-- Time Calculator
-### Completed (Yay! 🤘):
+- Budget App
+
+### Completed: (Yay! 🤘)
 #### Scientific Computing with Python
-- Arithmetic Formatter
+- ☑️ Arithmetic Formatter 👍
+- ☑️ Time Calculator 👍
