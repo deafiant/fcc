@@ -1,21 +1,21 @@
 import copy
 import random
 # Consider using the modules imported above.
+import collections
 
 class Hat:
     def __init__(self, **balls):
         self.contents = []
         for colour, num in balls.items():
-            for ball in range(0, num):
+            for ball in range(num):
                 self.contents.append(str(colour))
     def draw(self, item_num):
-# Using min() as substitute for if construct
+#       Using min() as more elegant substitute of if construct
         item_num = min(item_num, len(self.contents))
 #        if item_num > len(self.contents):
 #            item_num = len(self.contents)
-        print(item_num)
         drawn_list = []
-        for item in range(0, item_num):
+        for item in range(item_num):
             picked_ball = random.sample(self.contents, 1)[0]
             self.contents.remove(picked_ball)
             drawn_list.append(picked_ball)
@@ -23,11 +23,16 @@ class Hat:
             
 def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
     expected_result = 0
-    for experiment in range(0, num_experiments):
+    for experiment in range(num_experiments):
         trial_hat = copy.deepcopy(hat)
-        result = trial_hat.draw(num_balls_drawn)
-        colours = list(expected_balls.keys())
-        print(result, colours)
+        result = collections.Counter(trial_hat.draw(num_balls_drawn))
+        expected = collections.Counter(expected_balls)
+        # If expected is in the result, taking result
+        # away from expected will return nothing.
+        # However, nothing is considered False, so
+        # we needto negate that to produce True
+        if not expected - result:
+            expected_result += 1
     return expected_result/num_experiments
 
 if __name__ == "__main__":
