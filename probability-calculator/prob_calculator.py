@@ -27,10 +27,10 @@ def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
         trial_hat = copy.deepcopy(hat)
         result = collections.Counter(trial_hat.draw(num_balls_drawn))
         expected = collections.Counter(expected_balls)
-        # If expected is in the result, taking result
-        # away from expected will return nothing.
-        # However, nothing is considered False, so
-        # we needto negate that to produce True
+        # If the expected balls are in the result, taking result
+        # away from expected will leave nothing remaining.
+        # However, nothing is considered False, so we need to
+        # negate that to produce True
         if not expected - result:
             expected_result += 1
     return expected_result/num_experiments
