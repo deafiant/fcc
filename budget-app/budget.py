@@ -70,7 +70,7 @@ def create_spend_chart(categories):
                 chart += " o "
             else:
                 chart += "   "
-        chart += "\n"
+        chart += " \n"
     chart += f"    {'-' * ((len(categories) * 3) + 1)}\n"
     longest = max([ len(i) for i in items ])
     padded = [ i.ljust(longest) for i in items ]
@@ -79,32 +79,14 @@ def create_spend_chart(categories):
         for column in range(len(categories)):
             chart += f" {padded[column][row]} "
         if row + 1 != longest:
-            chart += "\n"
-    # This a cheat. My chart looks exactly the same but
-    # it is not passing the test and the test does not
-    # tell me what is wrong. I *think* it is something
-    # to do with line endings. Needs more investigation.
-    expected = "Percentage spent by category\n100|          \n 90|          \n 80|          \n 70|    o     \n 60|    o     \n 50|    o     \n 40|    o     \n 30|    o     \n 20|    o  o  \n 10|    o  o  \n  0| o  o  o  \n    ----------\n     B  F  E  \n     u  o  n  \n     s  o  t  \n     i  d  e  \n     n     r  \n     e     t  \n     s     a  \n     s     i  \n           n  \n           m  \n           e  \n           n  \n           t  "
-    chart = expected
+            chart += " \n"
+        else:
+            chart += " "
+    # Sigh! Each row of the expected had an extra space. 
+    # Had to get a diff tool to see this.
     return chart
 
 if __name__ == "__main__":
-    beer = Category("Beer")
-    beer.deposit(50, "Wage")
-#    print(beer.get_balance())
-    beer.withdraw(20, "Beer")
-    beer.withdraw(10, "More beer, more beer, more beer")
-#    print(beer.get_balance())
-#    print(beer.check_funds(10))
-#    print(beer.check_funds(30))
-#    print(beer)
-    wine = Category("Wine")
-    wine.deposit(40, "Stolen")
-    wine.withdraw(20, "Wine")
-    chips = Category("Chips")
-    chips.deposit(10, "Found")
-    chips.withdraw(5, "Chips")
-#    print(create_spend_chart([beer, wine, chips]))
     food = Category("Food")
     entertainment = Category("Entertainment")
     business = Category("Business")
@@ -114,5 +96,5 @@ if __name__ == "__main__":
     food.withdraw(105.55)
     entertainment.withdraw(33.40)
     business.withdraw(10.99)
+    print(repr(create_spend_chart([business, food, entertainment])))
     print(create_spend_chart([business, food, entertainment]))
-
